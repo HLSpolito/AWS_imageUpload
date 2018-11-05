@@ -6,21 +6,6 @@ import os
 import time
 import sys
 
-
-
-def progressbar():
-	toolbar_width=100
-	# setup toolbar
-	sys.stdout.write("%s" % (" " * toolbar_width))
-	sys.stdout.flush()
-	sys.stdout.write("\b" * toolbar_width) # return to start of line, after	'['
-
-	for i in xrange(toolbar_width):
-			time.sleep(1) # do real work here
-			# update the bar
-			sys.stdout.write("-")
-			sys.stdout.flush()
-
 def main(afi):
 
 	d_afi= None
@@ -42,7 +27,8 @@ def main(afi):
 		j_st = json.loads(out)
 		code = j_st["FpgaImages"][0]["State"]["Code"]
 		if code =='pending':
-			progressbar()
+			sys.stdout.write('.')
+			time.sleep(1)
 		elif code =='available':
 			print("Image available online")
 			print("Finished")
