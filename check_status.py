@@ -35,7 +35,7 @@ def main(afi):
 
 
 if __name__=="__main__":
-	parser = argparse.ArgumentParser(description="Audio Transcription")
+	parser = argparse.ArgumentParser(description="Check the status of the image on AWS")
 	parser.add_argument('--afi', help="AFI file")
 	args = parser.parse_args()
 	if args.afi==None:
