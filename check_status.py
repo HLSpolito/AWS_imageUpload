@@ -28,6 +28,7 @@ def main(afi):
 		code = j_st["FpgaImages"][0]["State"]["Code"]
 		if code =='pending':
 			sys.stdout.write('.')
+			sys.stdout.flush()
 			time.sleep(1)
 		elif code =='available':
 			print("Image available online")
