@@ -4,7 +4,7 @@ import json
 import subprocess
 import os
 
-def main(afi, kn):
+def main(afi):
 
 	d_afi= None
 	with open(afi,'r') as f:
@@ -37,9 +37,8 @@ def main(afi, kn):
 if __name__=="__main__":
 	parser = argparse.ArgumentParser(description="Audio Transcription")
 	parser.add_argument('--afi', help="AFI file")
-#	parser.add_argument('--k_n', help="Kernel name")
 	args = parser.parse_args()
-	if args.afi==None:# or args.k_n==None:
+	if args.afi==None:
 		parser.print_help()
 	else:
-		main(args.afi, args.k_n)
+		main(args.afi)
